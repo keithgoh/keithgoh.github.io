@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M"
+        crossorigin="anonymous">
+    <title>keith's profile</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/fontawesome/4.7.0/css/font-awe
+some.min.css">
+    <link rel="stylesheet" type="text/css" href="index.css">
+</head>
+
+<body>
+    <div class="container-fluid nopadding">
+
+        <div class="row justify-content-sm-center justify-content-md-start img1">
+
+            <!-- <h3 class="h3_1">National Archives of Singapore</h3> -->
+
+            <div class="col-sm-4 col-md-6 col-lg-12 words">
+
+                <div>
+
+                    <h1 class="h1">k e i t h ' s p r o f i l e</h1>
+
+                    <p class="text">
+                        Hi, welcome to my profile. I am a practicing building architect by education and training and i am looking for the next lap
+                        in my career path as a software programmer. <br> My design background and
+                        logic will greatly value-add to the front-end application of the tech-interfaces. Illustrated as
+                        backgrounds are some examples of my protfolio. Currently, i am greatly interested in programming
+                        langauage that will enable me to code dynamic user-interfaces for websites and/or gaming apps.<br>                        I hope there will be an opportunity for us to work together. Please feel free to drop me a message.
+                        <br>
+
+                    </p>
+
+                    <p>
+                        <a class="links" href="tel:+6593223931">m: +65 9322 3931</a>
+                    </p>
+                    <p>
+                        <a class="links" href="mailto:keith.kgoh@gmail.com">e: keith.kgoh@gmail.com</a>
+                    </p>
+
+                    <form action="https://script.google.com/macros/s/AKfycbxgjQuc_46wdD2FPYaSqzQ1n2TcEbZnr-dg5ypladtLnYGoGck/exec" method="POST">
+                        <fieldset>
+                            <div class="form-group">
+                                <label for="name-id">
+                                        name
+                                    </label>
+                                <input type="text" name="NAME" id="name-id" class="form-control my-input" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email-id">
+                                        email
+                                    </label>
+                                <input type="email" name="EMAIL" id="email-id" class="form-control my-input" required>
+                            </div>
+
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary form-control" id="submit-id">contact me</button>
+
+                                <!-- <button onclick="myFunction()">Click me</button> -->
+
+                                <p id="demo"></p>
+
+                                <!-- <p>A function is triggered when the button is clicked. The function outputs some text in a p element with id="demo".</p> -->
+
+                                <!-- <script>
+                                    function myFunction() {
+
+                                        // <p class="text">Thanks...</p>
+                                        document.getElementById("demo").innerHTML = "Thank you...";
+                                    }
+                                </script> -->
+                                <div class="alert alert-danger alert-dismissible" hidden id="alert-id">
+                                        <button type="submit-id" class="close" id="close-id"><span>&times;</span>
+                                        </button>
+          
+                                        Thank you...cheers...
+                                    </div>
+                            </div>
+                        </fieldset>
+
+
+                </div>
+
+
+
+
+            </div>
+            <div class="img2">
+                <!-- <h3 class="h31">Novartis Campus, Shanghai</h3> -->
+            </div>
+            <div class="img3">
+                <!-- <h3 class="h31">Wa-Light Exhibition, Seoul</h3> -->
+            </div>
+        </div>
+
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/3.1.1/jquery.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js"></script>
+        <!-- <script type="text/javascript" src="index.js"></script> -->
+
+        <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+            crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
+            crossorigin="anonymous"></script> -->
+
+        <script>
+            $(function () {
+
+                // on submitting the form
+                $('form').submit(function (event) {
+                    // prevent the default action of reloading the page
+                    event.preventDefault();
+
+                    var sendData = {};
+                    $(event.target.nodeName + ' :input').each(function () {
+                        sendData[this.name] = $(this).val();
+                    });
+
+                    var posting = $.ajax({
+                        type: 'POST',
+                        url: $(event.target.nodeName).prop('action'),
+                        data: sendData
+                    });
+
+                    posting.done(function (response) {
+                        console.log(response);
+                        $('#alert-id').prop('hidden', false);
+                        $('form :input').each(function () {
+                            $(this).val('');
+                        })
+                    });
+                    posting.fail(function (response) {
+                        console.log(response);
+                    });
+                });
+
+                // RESPONSE ALERT WINDOW-------------------------------------------------------------------------------
+                /* include the following HTML to use:
+                <div class="form-group">
+                    <button type="submit" class="btn btn-default my-btn form-control" id="submit-id">submit</button>                   
+                    <div class="alert alert-danger alert-dismissible fade in" hidden id="alert-id">
+                        <button type="button" class="close" id="close-id"><span>&times;</span></button>
+                        Thank you! We'll get in touch.
+                    </div>
+                </div>
+                */
+
+                // on clicking the X button
+                $('#close-id').click(function () {
+                    // hide the alert panel by adding the hidden property
+                    $('#alert-id').prop('hidden', true);
+                });
+
+            });
+        </script>
+
+</body>
+
+</html>
